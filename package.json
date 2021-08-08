@@ -23,5 +23,9 @@
   "scripts": {
     "build": "rimraf dist && tsc",
     "start:dev": "rimraf dist && tsc -w"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "class-validator": "^0.13.1"
   }
 }
