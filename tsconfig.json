@@ -9,7 +9,9 @@
     "esModuleInterop": true,
     "outDir": "dist",
     "declaration": true,
-    "rootDir": "./"
+    "rootDir": "./",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
   "include": ["./src/**/*.ts"]
 }
