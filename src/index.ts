@@ -1,5 +1,7 @@
 import AuthService from './auth/auth.service';
 import UserService from './auth/users/user.service';
+import ProjectService from './timesheet/projects/project.service';
+import TimeService from './timesheet/times/time.service';
 
 class Client {
   private accessToken: string | undefined;
@@ -7,8 +9,9 @@ class Client {
 
   public authService: AuthService;
   // Services are initialized by initializeResourceServices function in constructor
-  // @ts-ignore
-  public userService: UserService;
+  public userService!: UserService;
+  public projectService!: ProjectService;
+  public timeService!: TimeService;
 
   constructor(
     private backendUrl: string,
@@ -25,16 +28,14 @@ class Client {
 
   private initializeResourceServices() {
     this.userService = new UserService(this.apiUrl, this.accessToken)
+    this.projectService = new ProjectService(this.apiUrl, this.accessToken)
+    this.timeService = new TimeService(this.apiUrl, this.accessToken)
   }
 
   public setAccessToken(accessToken: string) {
     this.accessToken = accessToken;
 
     this.initializeResourceServices();
-  }
-
-  public getAccessToken(): string | undefined {
-    return this.accessToken;
   }
 }
 

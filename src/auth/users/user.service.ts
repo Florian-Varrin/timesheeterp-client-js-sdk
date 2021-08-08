@@ -1,6 +1,6 @@
 import AbstractResourceService from '../../abstract/abstract.resource.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import {UserEntity} from './entity/user.entity';
+import {UserEntity} from './entities/user.entity';
 import {UpdateUserDto} from './dto/update-user.dto';
 
 class UserService extends AbstractResourceService {
