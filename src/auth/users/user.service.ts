@@ -62,6 +62,26 @@ class UserService extends AbstractResourceService {
       throw error;
     }
   }
+
+  async addRole(userId: number, roles: string[]): Promise<UserEntity> {
+    try {
+      const { data: user } = await this.makeRequest('POST', `${this.resourceUrl}/${userId}/roles`, { roles })
+
+      return user;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async removeRole(userId: number, roleId: number): Promise<UserEntity> {
+    try {
+      const { data: user } = await this.makeRequest('DELETE', `${this.resourceUrl}/${userId}/roles/${roleId}`)
+
+      return user;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default UserService;
