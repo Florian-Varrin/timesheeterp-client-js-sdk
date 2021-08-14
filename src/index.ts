@@ -2,8 +2,9 @@ import AuthService from './auth/auth.service';
 import UserService from './auth/users/user.service';
 import ProjectService from './timesheet/projects/project.service';
 import TimeService from './timesheet/times/time.service';
+import ClockService from './clock/clock.service';
 
-class Client {
+class Timesheeterp {
   private accessToken: string | undefined;
   private readonly apiUrl: string;
 
@@ -12,6 +13,7 @@ class Client {
   public userService!: UserService;
   public projectService!: ProjectService;
   public timeService!: TimeService;
+  public clockService!: ClockService;
 
   constructor(
     private backendUrl: string,
@@ -30,6 +32,7 @@ class Client {
     this.userService = new UserService(this.apiUrl, this.accessToken)
     this.projectService = new ProjectService(this.apiUrl, this.accessToken)
     this.timeService = new TimeService(this.apiUrl, this.accessToken)
+    this.clockService = new ClockService(this.apiUrl, this.accessToken)
   }
 
   public setAccessToken(accessToken: string) {
@@ -39,4 +42,4 @@ class Client {
   }
 }
 
-export default Client;
+export default Timesheeterp;
