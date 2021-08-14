@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-type HttpMethods = 'GET' | 'POST' | 'PATCH' | 'DELETE'
+type HttpMethods = 'GET' | 'POST' | 'PATCH' | 'DELETE' | 'PUT';
 
 abstract class AbstractResourceService {
   protected constructor(
