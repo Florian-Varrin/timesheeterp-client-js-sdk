@@ -1,12 +1,12 @@
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import axios from 'axios';
-import Client from '../index';
+import Timesheeterp from '../index';
 
 class AuthService {
-  protected clientObject: Client;
+  protected clientObject: Timesheeterp;
   protected resourceUrl: string;
 
-  constructor(protected apiUrl: string, clientObject: Client) {
+  constructor(protected apiUrl: string, clientObject: Timesheeterp) {
     this.resourceUrl = `${apiUrl}/login`;
     this.clientObject = clientObject;
   }

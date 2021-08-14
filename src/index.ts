@@ -4,7 +4,7 @@ import ProjectService from './timesheet/projects/project.service';
 import TimeService from './timesheet/times/time.service';
 import ClockService from './clock/clock.service';
 
-class Client {
+class Timesheeterp {
   private accessToken: string | undefined;
   private readonly apiUrl: string;
 
@@ -42,4 +42,4 @@ class Client {
   }
 }
 
-export default Client;
+export default Timesheeterp;
