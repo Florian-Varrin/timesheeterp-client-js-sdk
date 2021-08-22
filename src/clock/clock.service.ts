@@ -16,9 +16,9 @@ class ClockService extends AbstractResourceService {
     this.resourceUrl = `${apiUrl}/clocks`;
   }
 
-  async findOneById(clockId: number, hydrated = false): Promise<ClockEntity> {
+  async findOneById(clockId: number, parameters = {}): Promise<ClockEntity> {
     try {
-      const { data: clock } = await this.makeRequest('GET', `${this.resourceUrl}/${clockId}?hydrated=${hydrated}`);
+      const { data: clock } = await this.makeRequest('GET', `${this.resourceUrl}/${clockId}`, null, parameters);
 
       return clock;
     } catch (error) {
@@ -26,9 +26,9 @@ class ClockService extends AbstractResourceService {
     }
   }
 
-  async findAll(hydrated = false): Promise<ClockEntity[]> {
+  async findAll(parameters = {}): Promise<ClockEntity[]> {
     try {
-      const { data: clocks } = await this.makeRequest('GET', `${this.resourceUrl}?hydrated=${hydrated}`);
+      const { data: clocks } = await this.makeRequest('GET', `${this.resourceUrl}`, null, parameters);
 
       return clocks;
     } catch (error) {

@@ -24,10 +24,12 @@ abstract class AbstractResourceService {
     method: HttpMethods,
     url: string,
     data: object | null = null,
+    parameters = {},
   ) {
     try {
+      const queryString = new URLSearchParams(parameters).toString();
       return await axios({
-        url,
+        url: `${url}?${queryString}`,
         method,
         data,
         headers: this.getHeaders(),

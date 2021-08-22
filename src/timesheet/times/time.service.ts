@@ -15,9 +15,9 @@ class TimeService extends AbstractResourceService {
     this.resourceUrl = `${apiUrl}/projects`;
   }
 
-  async findOneById(projectId: number, timeId: number): Promise<TimeEntity> {
+  async findOneById(projectId: number, timeId: number, parameters = {}): Promise<TimeEntity> {
     try {
-      const { data: time } = await this.makeRequest('GET', `${this.resourceUrl}/${projectId}/times/${timeId}`);
+      const { data: time } = await this.makeRequest('GET', `${this.resourceUrl}/${projectId}/times/${timeId}`, null, parameters);
 
       return time;
     } catch (error) {
@@ -25,9 +25,9 @@ class TimeService extends AbstractResourceService {
     }
   }
 
-  async findAll(projectId: number): Promise<TimeEntity[]> {
+  async findAll(projectId: number, parameters = {}): Promise<TimeEntity[]> {
     try {
-      const { data: times } = await this.makeRequest('GET', `${this.resourceUrl}/${projectId}/times`);
+      const { data: times } = await this.makeRequest('GET', `${this.resourceUrl}/${projectId}/times`, null, parameters);
 
       return times;
     } catch (error) {

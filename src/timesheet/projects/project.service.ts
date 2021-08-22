@@ -15,9 +15,9 @@ class ProjectService extends AbstractResourceService {
     this.resourceUrl = `${apiUrl}/projects`;
   }
 
-  async findOneById(projectId: number): Promise<ProjectEntity> {
+  async findOneById(projectId: number, parameters = {}): Promise<ProjectEntity> {
     try {
-      const { data: project } = await this.makeRequest('GET', `${this.resourceUrl}/${projectId}`);
+      const { data: project } = await this.makeRequest('GET', `${this.resourceUrl}/${projectId}`, null, parameters);
 
       return project;
     } catch (error) {
@@ -25,9 +25,9 @@ class ProjectService extends AbstractResourceService {
     }
   }
 
-  async findAll(): Promise<ProjectEntity[]> {
+  async findAll(parameters = {}): Promise<ProjectEntity[]> {
     try {
-      const { data: projects } = await this.makeRequest('GET', this.resourceUrl);
+      const { data: projects } = await this.makeRequest('GET', this.resourceUrl, null, parameters);
 
       return projects;
     } catch (error) {
