@@ -3,6 +3,7 @@ import UserService from './auth/users/user.service';
 import ProjectService from './timesheet/projects/project.service';
 import TimeService from './timesheet/times/time.service';
 import ClockService from './clock/clock.service';
+import { AxiosError } from 'axios';
 
 class Timesheeterp {
   private accessToken: string | undefined;
@@ -18,7 +19,7 @@ class Timesheeterp {
   constructor(
     private backendUrl: string,
     private apiVersion: number,
-    accessToken?: string | undefined
+    accessToken?: string | undefined | null
   ) {
     this.apiUrl = `${backendUrl}${backendUrl.endsWith('/') ? '' : '/'}api/v${apiVersion}`;
     this.accessToken = accessToken ? accessToken : undefined;
@@ -43,3 +44,4 @@ class Timesheeterp {
 }
 
 export default Timesheeterp;
+export { AxiosError }
