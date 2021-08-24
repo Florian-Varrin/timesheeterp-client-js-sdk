@@ -1,6 +1,6 @@
 {
   "name": "timesheeterp-js-sdk",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "repository": "git@github.com:Florian-Varrin/timesheeterp-client-js-sdk.git",
   "author": "fvarrin <florian.varrin@gmail.com>",
