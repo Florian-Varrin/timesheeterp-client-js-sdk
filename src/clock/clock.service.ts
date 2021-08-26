@@ -85,7 +85,7 @@ class ClockService extends AbstractResourceService {
     }
   }
 
-  async stopAll(): Promise<ClockEntity[] | null> {
+  async stopAll(): Promise<ClockEntity[]> {
     try {
       const runningClocks = await this.findAll({ status: 'running' });
       const promises = runningClocks.map((clock) => this.makeRequest('PUT', `${this.resourceUrl}/${clock.id}/stop`))
