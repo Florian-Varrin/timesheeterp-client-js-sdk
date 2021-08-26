@@ -85,6 +85,18 @@ class ClockService extends AbstractResourceService {
     }
   }
 
+  async stopAll(): Promise<ClockEntity[] | null> {
+    try {
+      const runningClocks = await this.findAll({ status: 'running' });
+      const promises = runningClocks.map((clock) => this.makeRequest('PUT', `${this.resourceUrl}/${clock.id}/stop`))
+      const clocks = await Promise.all(promises);
+
+      return clocks.map((response) => response.data);
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async reset(clockId: number): Promise<ClockEntity> {
     try {
       const { data: clock } = await this.makeRequest('POST', `${this.resourceUrl}/${clockId}/reset`);
