@@ -88,7 +88,7 @@ class ClockService extends AbstractResourceService {
   async stopAll(): Promise<ClockEntity[]> {
     try {
       const runningClocks = await this.findAll({ status: 'running' });
-      const promises = runningClocks.map((clock) => this.stop(clock.id))
+      const promises = runningClocks.map((clock) => this.stop(clock.id));
 
       return await Promise.all(promises);
     } catch (error) {
@@ -108,8 +108,8 @@ class ClockService extends AbstractResourceService {
 
   async resetAll(): Promise<ClockEntity[]> {
     try {
-      const clocks = await this.findAll()
-      const promises = clocks.map((clock) => this.reset(clock.id))
+      const clocks = await this.findAll();
+      const promises = clocks.map((clock) => this.reset(clock.id));
 
       return await Promise.all(promises);
     } catch (error) {

@@ -4,4 +4,4 @@ export type CreateTimeDto = {
  duration: number;
 
  description: string;
-}
+};
