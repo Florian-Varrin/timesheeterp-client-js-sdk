@@ -4,4 +4,4 @@ export type UpdateTimeDto = {
  duration?: number;
 
  description?: string;
-}
+};
