@@ -35,7 +35,7 @@ abstract class AbstractResourceService {
         headers: this.getHeaders(),
       });
     } catch (error) {
-      const errorMessage = error?.response?.data?.message[0];
+      const errorMessage = error?.response?.data?.message;
       throw new Error(errorMessage || error);
     }
   }
